@@ -1,0 +1,5 @@
+fixes:
+  - "ballerinax/idetraceprovider/*/::ballerina/"
+  
+ignore:
+  - "**/native"
