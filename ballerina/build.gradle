@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
@@ -37,9 +38,6 @@ ballerina {
 }
 
 configurations {
-    nativeJar {
-        transitive false
-    }
     externalJars {
         transitive true
     }
@@ -50,8 +48,6 @@ clean {
 }
 
 dependencies {
-    nativeJar project(':idetraceprovider-native')
-
     externalJars "io.opentelemetry:opentelemetry-sdk-trace:${openTelemetrySDKVersion}"
     externalJars "io.opentelemetry:opentelemetry-sdk-common:${openTelemetrySDKVersion}"
     externalJars "io.opentelemetry.semconv:opentelemetry-semconv:${openTelemetrySemconvVersion}"
