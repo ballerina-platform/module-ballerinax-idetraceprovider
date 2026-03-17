@@ -1,8 +1,13 @@
-## Package Overview
+## Overview
 
-The IdeTraceProvider Observability Extension is a lightweight tracing extension for the <a target="_blank" href="https://ballerina.io/">Ballerina</a> language.
+The IdeTraceProvider Observability Extension is a lightweight tracing extension that provides a simple HTTP-based implementation for tracing and publishing traces to an OTLP/HTTP compatible trace collector, optimized for IDE and development environments.
 
-It provides a simple HTTP-based implementation for tracing and publishing traces to an OTLP/HTTP compatible trace collector, optimized for IDE and development environments.
+### Key Features
+
+- Publish traces to OTLP/HTTP compatible trace collectors
+- Lightweight implementation optimized for IDE and development workflows
+- Configurable endpoint for trace publishing
+- Seamless integration with observability tooling
 
 ## Enabling IdeTraceProvider Extension
 
