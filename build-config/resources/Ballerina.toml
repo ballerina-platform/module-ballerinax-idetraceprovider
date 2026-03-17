@@ -21,7 +21,7 @@ name = "idetraceprovider"
 version = "@toml.version@"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["Observability", "Cost/Freemium", "Vendor/Other", "Area/Other", "Type/Other"]
+keywords = ["Type/Driver", "Area/Developer Tools", "Observability", "Cost/Freemium", "Vendor/N/A"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-idetraceprovider"
 
 [platform.java21]
