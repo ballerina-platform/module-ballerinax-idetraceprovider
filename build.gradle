@@ -16,7 +16,7 @@
 
 plugins {
     id "com.github.spotbugs-base"
-    id "com.github.johnrengelman.shadow"
+    id "com.gradleup.shadow"
     id "de.undercouch.download"
     id "net.researchgate.release"
 }
@@ -73,7 +73,10 @@ release {
     }
 }
 
-task build {
+if (!tasks.names.contains('build')) {
+    tasks.register('build')
+}
+tasks.named('build') {
     dependsOn(':idetraceprovider-native:build')
     dependsOn(':idetraceprovider-ballerina:build')
 }

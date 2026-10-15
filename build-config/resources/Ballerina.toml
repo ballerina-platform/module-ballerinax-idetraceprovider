@@ -15,7 +15,7 @@
 # under the License.
 
 [package]
-distribution = "2201.12.0"
+distribution = "2201.14.0"
 org = "ballerinax"
 name = "idetraceprovider"
 version = "@toml.version@"
@@ -24,94 +24,71 @@ authors = ["Ballerina"]
 keywords = ["Type/Driver", "Area/Developer Tools", "Observability", "Cost/Freemium", "Vendor/N/A"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-idetraceprovider"
 
-[platform.java21]
+[platform.java25]
 graalvmCompatible = true
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "../native/build/libs/idetraceprovider-native-@project.version@.jar"
 groupId = "io.ballerina.lib"
 artifactId = "idetraceprovider-native"
 version = "@toml.version@"
 
 # OpenTelemetry SDK (Core dependencies - transitive deps will be included via Gradle)
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-sdk-trace-@opentelemetrySDK.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-sdk-trace"
 version = "@opentelemetrySDK.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-sdk-common-@opentelemetrySDK.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-sdk-common"
 version = "@opentelemetrySDK.version@"
 
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-sdk-@opentelemetrySDK.version@.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-sdk"
-version = "@opentelemetrySDK.version@"
-
-# OpenTelemetry Semconv
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-semconv-@opentelemetrySemconv.version@.jar"
-groupId = "io.opentelemetry.semconv"
-artifactId = "opentelemetry-semconv"
-version = "@opentelemetrySemconv.version@"
-
 # OTLP Exporter
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-exporter-otlp-@opentelemetry.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-otlp"
 version = "@opentelemetry.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-exporter-common-@opentelemetry.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-common"
 version = "@opentelemetry.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-exporter-otlp-common-@opentelemetry.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-otlp-common"
 version = "@opentelemetry.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/opentelemetry-exporter-sender-okhttp-@opentelemetry.version@.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-sender-okhttp"
 version = "@opentelemetry.version@"
 
-# OpenTelemetry API & Context (needed at runtime)
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-api-@opentelemetry.version@.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-api"
-version = "@opentelemetry.version@"
-
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-context-@opentelemetry.version@.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-context"
-version = "@opentelemetry.version@"
+# NOTE: opentelemetry-api, opentelemetry-context and opentelemetry-common are intentionally
+# not packed: ballerina-rt shades these artifacts and its copies always win classloading.
 
 # OkHttp (HTTP Client)
-[[platform.java21.dependency]]
-path = "./lib/okhttp-@okHttp.version@.jar"
+[[platform.java25.dependency]]
+path = "./lib/okhttp-jvm-@okHttp.version@.jar"
 groupId = "com.squareup.okhttp3"
-artifactId = "okhttp"
+artifactId = "okhttp-jvm"
 version = "@okHttp.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/okio-jvm-@okio.version@.jar"
 groupId = "com.squareup.okio"
 artifactId = "okio-jvm"
 version = "@okio.version@"
 
 # Kotlin (required by OkHttp)
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/kotlin-stdlib-@kotlin.version@.jar"
 groupId = "org.jetbrains.kotlin"
 artifactId = "kotlin-stdlib"
