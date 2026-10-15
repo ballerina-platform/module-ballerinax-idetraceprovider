@@ -21,7 +21,6 @@ module io.ballerina.observe.trace.extension.idetraceprovider {
     requires io.opentelemetry.api;
     requires io.opentelemetry.sdk.trace;
     requires io.opentelemetry.sdk.common;
-    requires io.opentelemetry.semconv;
     requires io.opentelemetry.context;
 
     provides io.ballerina.runtime.observability.tracer.spi.TracerProvider
