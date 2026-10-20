@@ -15,104 +15,81 @@
 # under the License.
 
 [package]
-distribution = "2201.12.0"
+distribution = "2201.14.0"
 org = "ballerinax"
 name = "idetraceprovider"
-version = "0.9.0"
+version = "0.10.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["Observability", "Cost/Freemium"]
+keywords = ["Type/Driver", "Area/Developer Tools", "Observability", "Cost/Freemium", "Vendor/N/A"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-idetraceprovider"
 
-[platform.java21]
+[platform.java25]
 graalvmCompatible = true
 
-[[platform.java21.dependency]]
-path = "../native/build/libs/idetraceprovider-native-0.9.0-SNAPSHOT.jar"
+[[platform.java25.dependency]]
+path = "../native/build/libs/idetraceprovider-native-0.10.0-SNAPSHOT.jar"
 groupId = "io.ballerina.lib"
 artifactId = "idetraceprovider-native"
-version = "0.9.0"
+version = "0.10.0"
 
 # OpenTelemetry SDK (Core dependencies - transitive deps will be included via Gradle)
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-sdk-trace-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-sdk-trace-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-sdk-trace"
-version = "1.32.0"
+version = "1.65.0"
 
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-sdk-common-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-sdk-common-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-sdk-common"
-version = "1.32.0"
-
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-sdk-1.32.0.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-sdk"
-version = "1.32.0"
-
-# OpenTelemetry Semconv
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-semconv-1.21.0-alpha.jar"
-groupId = "io.opentelemetry.semconv"
-artifactId = "opentelemetry-semconv"
-version = "1.21.0-alpha"
+version = "1.65.0"
 
 # OTLP Exporter
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-exporter-otlp-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-exporter-otlp-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-otlp"
-version = "1.32.0"
+version = "1.65.0"
 
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-exporter-common-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-exporter-common-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-common"
-version = "1.32.0"
+version = "1.65.0"
 
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-exporter-otlp-common-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-exporter-otlp-common-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-otlp-common"
-version = "1.32.0"
+version = "1.65.0"
 
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-exporter-sender-okhttp-1.32.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/opentelemetry-exporter-sender-okhttp-1.65.0.jar"
 groupId = "io.opentelemetry"
 artifactId = "opentelemetry-exporter-sender-okhttp"
-version = "1.32.0"
+version = "1.65.0"
 
-# OpenTelemetry API & Context (needed at runtime)
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-api-1.32.0.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-api"
-version = "1.32.0"
-
-[[platform.java21.dependency]]
-path = "./lib/opentelemetry-context-1.32.0.jar"
-groupId = "io.opentelemetry"
-artifactId = "opentelemetry-context"
-version = "1.32.0"
+# NOTE: opentelemetry-api, opentelemetry-context and opentelemetry-common are intentionally
+# not packed: ballerina-rt shades these artifacts and its copies always win classloading.
 
 # OkHttp (HTTP Client)
-[[platform.java21.dependency]]
-path = "./lib/okhttp-4.12.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/okhttp-jvm-5.4.0.jar"
 groupId = "com.squareup.okhttp3"
-artifactId = "okhttp"
-version = "4.12.0"
+artifactId = "okhttp-jvm"
+version = "5.4.0"
 
-[[platform.java21.dependency]]
-path = "./lib/okio-jvm-3.6.0.jar"
+[[platform.java25.dependency]]
+path = "./lib/okio-jvm-3.17.0.jar"
 groupId = "com.squareup.okio"
 artifactId = "okio-jvm"
-version = "3.6.0"
+version = "3.17.0"
 
 # Kotlin (required by OkHttp)
-[[platform.java21.dependency]]
-path = "./lib/kotlin-stdlib-1.9.10.jar"
+[[platform.java25.dependency]]
+path = "./lib/kotlin-stdlib-2.2.21.jar"
 groupId = "org.jetbrains.kotlin"
 artifactId = "kotlin-stdlib"
-version = "1.9.10"
+version = "2.2.21"

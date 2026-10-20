@@ -32,9 +32,9 @@ ballerina {
     packageOrganization = packageOrg
     module = packageName
     testCoverageParam = "--code-coverage --coverage-format=xml"
-    isConnector = true
+    connector = true
     langVersion = ballerinaLangVersion
-    platform = "java21"
+    platform = "java25"
 }
 
 configurations {
@@ -50,7 +50,6 @@ clean {
 dependencies {
     externalJars "io.opentelemetry:opentelemetry-sdk-trace:${openTelemetrySDKVersion}"
     externalJars "io.opentelemetry:opentelemetry-sdk-common:${openTelemetrySDKVersion}"
-    externalJars "io.opentelemetry.semconv:opentelemetry-semconv:${openTelemetrySemconvVersion}"
     externalJars "io.opentelemetry:opentelemetry-exporter-otlp:${openTelemetryVersion}"
 }
 
@@ -63,7 +62,6 @@ task updateTomlFiles {
     doLast {
         def openTelemetryVersion = project.openTelemetryVersion
         def openTelemetrySDKVersion = project.openTelemetrySDKVersion
-        def openTelemetrySemconvVersion = project.openTelemetrySemconvVersion
         def okHttpVersion = project.okHttpVersion
         def okioVersion = project.okioVersion
         def kotlinVersion = project.kotlinVersion
@@ -72,7 +70,6 @@ task updateTomlFiles {
         newConfig = newConfig.replace("@toml.version@", tomlVersion)
         newConfig = newConfig.replace("@opentelemetry.version@", openTelemetryVersion)
         newConfig = newConfig.replace("@opentelemetrySDK.version@", openTelemetrySDKVersion)
-        newConfig = newConfig.replace("@opentelemetrySemconv.version@", openTelemetrySemconvVersion)
         newConfig = newConfig.replace("@okHttp.version@", okHttpVersion)
         newConfig = newConfig.replace("@okio.version@", okioVersion)
         newConfig = newConfig.replace("@kotlin.version@", kotlinVersion)
@@ -80,9 +77,15 @@ task updateTomlFiles {
     }
 }
 
+abstract class ExecHelper {
+    @Inject
+    abstract ExecOperations getExecOperations()
+}
+def execHelper = project.objects.newInstance(ExecHelper)
+
 task commitTomlFiles {
     doLast {
-        project.exec {
+        execHelper.execOperations.exec {
             ignoreExitValue true
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                 commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the native jar versions\" Ballerina.toml Dependencies.toml"
